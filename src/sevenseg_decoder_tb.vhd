@@ -32,13 +32,61 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity sevenseg_decoder_tb is
-    Port ( i_hex : in STD_LOGIC_VECTOR (3 downto 0);
-           o_seg_n : out STD_LOGIC_VECTOR (6 downto 0));
+   
 end sevenseg_decoder_tb;
 
-architecture Behavioral of sevenseg_decoder_tb is
-
+architecture test_bench of sevenseg_decoder_tb is
+    component sevenseg_decoder is 
+      port (
+        i_Hex : in STD_LOGIC_VECTOR (3 downto 0);
+        o_seg_n : out STD_LOGIC_VECTOR (6 downto 0));
+      end component sevenseg_decoder; 
+      
+      signal test_sw : std_logic_vector (3 downto 0):= (others=> '0');
+      signal test_seg : std_logic_vector (6 downto 0); 
 begin
+    sevenseg_decoder_0: sevenseg_decoder
+	port map(
+	   i_Hex => test_sw, 
+	   o_seg_n => test_seg
+	   ); 
+	   
+test_process : process 
+	begin
+	test_sw <= x"0"; wait for 10 ns;
+         assert test_seg = "0000001" report "error on A" severity failure; 
+    test_sw <= x"1"; wait for 10 ns;
+         assert test_seg = "1001111" report "error on A" severity failure; 
+    test_sw <= x"2"; wait for 10 ns;
+         assert test_seg = "0010010" report "error on A" severity failure;
+    test_sw <= x"3"; wait for 10 ns;
+         assert test_seg = "0000110" report "error on A" severity failure;
+    test_sw <= x"4"; wait for 10 ns;
+         assert test_seg = "1001100" report "error on A" severity failure;
+    test_sw <= x"5"; wait for 10 ns;
+         assert test_seg = "0100100" report "error on A" severity failure;
+    test_sw <= x"6"; wait for 10 ns;
+         assert test_seg = "0100000" report "error on A" severity failure;
+    test_sw <= x"7"; wait for 10 ns;
+         assert test_seg = "0001111" report "error on A" severity failure;
+    test_sw <= x"8"; wait for 10 ns;
+         assert test_seg = "0000000" report "error on A" severity failure;
+    test_sw <= x"9"; wait for 10 ns;
+         assert test_seg = "0001100" report "error on A" severity failure;
+    test_sw <= x"A"; wait for 10 ns;
+         assert test_seg = "0001000" report "error on A" severity failure; 
+    test_sw <= x"B"; wait for 10 ns;
+         assert test_seg = "1100000" report "error on B" severity failure; 
+    test_sw <= x"C"; wait for 10 ns;
+         assert test_seg = "1110010" report "error on C" severity failure; 
+    test_sw <= x"D"; wait for 10 ns;
+         assert test_seg = "1000010" report "error on D" severity failure; 
+    test_sw <= x"E"; wait for 10 ns;
+         assert test_seg = "0110000" report "error on E" severity failure; 
+    test_sw <= x"F"; wait for 10 ns;
+         assert test_seg = "0111000" report "error on F" severity failure; 
+    wait;
+    end process; 
 
 
-end Behavioral;
+end test_bench;
