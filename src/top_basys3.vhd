@@ -85,7 +85,6 @@ architecture top_basys3_arch of top_basys3 is
         o_seg_n : out STD_LOGIC_VECTOR (6 downto 0));
       end component sevenseg_decoder; 
   -- create wire to connect button to 7SD enable (active-low)
-  signal s_seg : std_logic_vector (6 downto 0); 
   signal w_out : std_logic; 
 
   
@@ -97,9 +96,8 @@ begin
 	sevenseg_decoder_0: sevenseg_decoder
 	port map(
 	   i_Hex => sw, 
-	   o_seg_n => s_seg
+	   o_seg_n => seg
 	   ); 
-	   seg <= s_seg; 
 	-- CONCURRENT STATEMENTS ----------------------------
 	
 	-- wire up active-low 7SD anode (active low) to button (active-high)
