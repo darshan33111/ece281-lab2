@@ -82,7 +82,7 @@ architecture top_basys3_arch of top_basys3 is
   component sevenseg_decoder is 
       port (
         i_Hex : in STD_LOGIC_VECTOR (3 downto 0);
-        o_seg_n : out STD_LOGIC_VECTOR (0 to 6));
+        o_seg_n : out STD_LOGIC_VECTOR (6 downto 0));
       end component sevenseg_decoder; 
   -- create wire to connect button to 7SD enable (active-low)
   signal w_out : std_logic; 
@@ -96,13 +96,7 @@ begin
 	sevenseg_decoder_0: sevenseg_decoder
 	port map(
 	   i_Hex => sw, 
-	   o_seg_n(0) => seg(6),
-        o_seg_n(1) => seg(5),
-        o_seg_n(2) => seg(4),
-        o_seg_n(3) => seg(3),
-        o_seg_n(4) => seg(2),
-        o_seg_n(5) => seg(1),
-        o_seg_n(6) => seg(0)
+	   o_seg_n => seg
 	   ); 
 	-- CONCURRENT STATEMENTS ----------------------------
 	
