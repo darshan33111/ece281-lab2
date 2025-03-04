@@ -104,5 +104,6 @@ begin
 	-- display 7SD 0 only when button pushed
 	-- other 7SD are kept off
 	-----------------------------------------------------
+	w_out <= btnC; 
 	an  <= (0 => w_out, others => '1');
 end top_basys3_arch;
