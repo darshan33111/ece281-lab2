@@ -39,7 +39,7 @@ architecture test_bench of sevenseg_decoder_tb is
     component sevenseg_decoder is 
       port (
         i_Hex : in STD_LOGIC_VECTOR (3 downto 0);
-        o_seg_n : out STD_LOGIC_VECTOR (6 downto 0));
+        o_seg_n : out STD_LOGIC_VECTOR (0 to 6));
       end component sevenseg_decoder; 
       
       signal test_sw : std_logic_vector (3 downto 0):= (others=> '0');
