@@ -48,7 +48,13 @@ begin
     sevenseg_decoder_0: sevenseg_decoder
 	port map(
 	   i_Hex => test_sw, 
-	   o_seg_n => test_seg
+	   o_seg_n(6) => test_seg(0),
+	   o_seg_n(5) => test_seg(1),
+	   o_seg_n(4) => test_seg(2), 
+	   o_seg_n(3) => test_seg(3), 
+	   o_seg_n(2) => test_seg(4),
+	   o_seg_n(1) => test_seg(5), 
+	   o_seg_n(0) => test_seg(6)  
 	   ); 
 	   
 test_process : process 
