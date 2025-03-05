@@ -54,25 +54,25 @@ begin
 test_process : process 
 	begin
 	test_sw <= x"0"; wait for 10 ns;
-         assert test_seg = "0000001" report "error on A" severity failure; 
+         assert test_seg = "0000001" report "error on 0" severity failure; 
     test_sw <= x"1"; wait for 10 ns;
-         assert test_seg = "1001111" report "error on A" severity failure; 
+         assert test_seg = "1001111" report "error on 1" severity failure; 
     test_sw <= x"2"; wait for 10 ns;
-         assert test_seg = "0010010" report "error on A" severity failure;
+         assert test_seg = "0010010" report "error on 2" severity failure;
     test_sw <= x"3"; wait for 10 ns;
-         assert test_seg = "0000110" report "error on A" severity failure;
+         assert test_seg = "0000110" report "error on 3" severity failure;
     test_sw <= x"4"; wait for 10 ns;
-         assert test_seg = "1001100" report "error on A" severity failure;
+         assert test_seg = "1001100" report "error on 4" severity failure;
     test_sw <= x"5"; wait for 10 ns;
-         assert test_seg = "0100100" report "error on A" severity failure;
+         assert test_seg = "0100100" report "error on 5" severity failure;
     test_sw <= x"6"; wait for 10 ns;
-         assert test_seg = "0100000" report "error on A" severity failure;
+         assert test_seg = "0100000" report "error on 6" severity failure;
     test_sw <= x"7"; wait for 10 ns;
-         assert test_seg = "0001111" report "error on A" severity failure;
+         assert test_seg = "0001111" report "error on 7" severity failure;
     test_sw <= x"8"; wait for 10 ns;
-         assert test_seg = "0000000" report "error on A" severity failure;
+         assert test_seg = "0000000" report "error on 8" severity failure;
     test_sw <= x"9"; wait for 10 ns;
-         assert test_seg = "0001100" report "error on A" severity failure;
+         assert test_seg = "0001100" report "error on 9" severity failure;
     test_sw <= x"A"; wait for 10 ns;
          assert test_seg = "0001000" report "error on A" severity failure; 
     test_sw <= x"B"; wait for 10 ns;
